@@ -1,0 +1,17 @@
+!.env.schema.json
+node_modules/
+database/*.db
+database/*.db-wal
+database/*.db-shm
+database/uploads/*
+!database/uploads/.gitkeep
+backups/
+logs/
+*.log
+npm-debug.log*
+.DS_Store
+enzo.txt
+scratch/
+package-lock.json
+.env
+.env.local
