@@ -21,14 +21,16 @@ function setupMusic(client) {
 
   let nodes = [];
   if (process.env.LAVALINK_NODES) {
+    // Format: host:port:password[:secure]
+    // The optional 4th field enables SSL/WSS nodes, e.g. host:443:password:true
     nodes = process.env.LAVALINK_NODES.split(',').map((nodeStr) => {
-      const [host, port, password] = nodeStr.split(':');
+      const [host, port, password, secure] = nodeStr.split(':');
       return {
         authorization: password || 'youshallnotpass',
         host: host || 'localhost',
         port: parseInt(port) || 2333,
         id: host,
-        secure: false
+        secure: secure === 'true'
       };
     });
   }
